@@ -3,7 +3,7 @@
 \usepackage{setspace}
 \usepackage{graphicx}         
 \usepackage{eso-pic} 
-\usepackage{ifthen}
+\usepackage{xifthen}
 
  \newcommand\BackgroundPic{
  \put(-4,-0.5){
