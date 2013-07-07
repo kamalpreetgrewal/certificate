@@ -1,0 +1,46 @@
+\documentclass[16pt,a4paper]{scrartcl}
+\usepackage{graphicx}                            
+\usepackage[landscape,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} 
+\usepackage{setspace} 
+\usepackage{microtype}        
+\usepackage{eso-pic} 
+\usepackage{ifthen}
+\newcommand\BackgroundPic{
+\put(-5.5,0){
+\parbox[b][\paperheight]{\paperwidth}{
+\vfill
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight,
+keepaspectratio]{certificates.jpg}              
+\vfill
+}}}
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+\usepackage{datatool} 
+\DTLloaddb{names}{data1.csv} 
+ \begin{document}
+\AddToShipoutPicture{\BackgroundPic}    
+\DTLforeach{names}{ 
+\sal=Sal, \firstname=1st Name, \middlename=Middle Name, \lastname=Last Name, \institute=Institute, \city=City, \photo=Photo}{
+\noindent\\\\\\\\\\
+\begin{minipage}[l]{1.5in}
+\includegraphics[width=0.72\linewidth]{logo.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{6.5in}
+\end{minipage}
+\hfill
+\begin{minipage}[r]{1.0in}
+\includegraphics[width=1.0\linewidth]{\photo} 
+\end{minipage}
+\vskip8em
+\ifthenelse{\equal{\middlename}{\empty}}{\noindent{{\large{\emph {This is to certify that {\Large{\textcolor{red}{\sal \firstname}}}
+{\Large{\textcolor{red}{\lastname}}} of {\Large{\textcolor{red}{\institute}}}, {\Large{\textcolor{red}{\city}}} attended the Faculty Development Program on Recent Advancements in Manufacturing Technology.}}}}}
+{\noindent{{\large{\emph {This is to certify that {\Large{\textcolor{red}{\sal}{\firstname}}} {\Large{\textcolor{red}{\middlename}}} {\Large{\textcolor{red}{\lastname}}} of {\Large{\textcolor{red}{\institute}}}, {\Large{\textcolor{red}{\city}}} attended the Faculty Development Program on Recent Advancements in Manufacturing Technology.}}}}}
+
+\pagebreak}
+
+\end{document}
