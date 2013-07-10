@@ -1,46 +1,46 @@
 \documentclass[16pt,a4paper]{scrartcl}                            
-\usepackage[landscape,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} 
-\usepackage{setspace}
-\usepackage{graphicx}         
-\usepackage{eso-pic} 
-\usepackage{ifthen}
+\usepackage[landscape]{geometry}  % for layout
+\usepackage{setspace} % to set spacing between lines
+\usepackage{graphicx}  % to include images    
+\usepackage{eso-pic} % to include background image
+\usepackage{ifthen} % to use ifelse condition
 
  \newcommand\BackgroundPic{
- \put(-4,-0.5){
- \parbox[b][8in]{8in}{
+ \put(0,0){
+ \parbox[b][\paperheight]{\paperwidth}{
  \vfill
  \centering
  \includegraphics[width=\paperwidth,height=\paperheight,
- keepaspectratio]{11.jpg}              
+ keepaspectratio]{certificate.jpg}              
  \vfill
- }}}
+ }}} % including background image
 
 \tolerance=1
 \emergencystretch=\maxdimen
 \hyphenpenalty=10000
 \hbadness=10000
 
-\usepackage{datatool} 
-\DTLloaddb{names}{data1.csv}  
+\usepackage{datatool} % to include csv file
+\DTLloaddb{names}{data1.csv} % including information from data1.csv file
     
 \begin{document}
-\AddToShipoutPicture{\BackgroundPic}     
+\AddToShipoutPicture{\BackgroundPic} % call to background image 
 \DTLforeach{names}{
 \sal=Sal,\firstname=1st Name,\middlename=Middle Name,\lastname=Last Name,\institue=Institute,\city=City,\photo=Photo}{
 \begin{minipage}[l]{1.4in}
-\includegraphics[width=.92\linewidth]{logo.png}  %Here include left side image
+\includegraphics[width=.92\linewidth]{logo.png}  %including left side image
 \end{minipage}
 \hfill 
 \begin{minipage}[c]{6.5in}
 \end{minipage}
 \hfill
 \begin{minipage}[r]{1.0in}
-\includegraphics[width=1.35\linewidth]{\photo} 
+\includegraphics[width=1.35\linewidth]{\photo} %including right side image
 \end{minipage}
 \\\\\\\\\\\\\\\\
 \ifthenelse{\equal{\middlename}{\empty}}{\noindent{{\large{\emph {This is to certify that {\Large{\textcolor{red}{\sal \firstname}}}  {\Large{\textcolor{red}{\lastname}}} of {\Large{\textcolor{red}{\institue}}}, {\Large{\textcolor{red}{\city}}} attended the Faculty Development Program on Recent Advancements in Manufacturing Technology.}}}}}
 {{\noindent{{\large{\emph {This is to certify that {\Large{\textcolor{red}{\sal \firstname}}}  {\Large{\textcolor{red}{\middlename}}}  {\Large{\textcolor{red}{\lastname}}} of  {\Large{\textcolor{red}{\institue}}},  {\Large{\textcolor{red}{\city}}} attended the Faculty Development Program on Recent Advancements in Manufacturing Technology.}}}}}
-}
+} % used ifelse in case of missing middle names
 
 \pagebreak}
 
