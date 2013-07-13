@@ -17,7 +17,11 @@
 
 \tolerance=1
 \emergencystretch=\maxdimen
+<<<<<<< HEAD
 \hyphenpenalty=10000
+=======
+\hyphenpenalty=10000 % to remove hyphenation
+>>>>>>> 2f2e003cffc7557778c21385b5a1465b525dc58a
 \hbadness=10000
 
 \usepackage{datatool} % to include csv file
@@ -31,12 +35,24 @@
 \includegraphics[width=.92\linewidth]{logo.png}  %including left side image
 \end{minipage}
 \hfill 
+<<<<<<< HEAD
 \begin{minipage}[c]{6.5in}
 \end{minipage}
 \hfill
 \begin{minipage}[r]{1.0in}
 \includegraphics[width=1.35\linewidth]{\photo} %including right side image
 \end{minipage}
+=======
+
+\begin{minipage}[c]{6.5in}
+\end{minipage}
+\hfill
+
+\begin{minipage}[r]{1.0in}
+\includegraphics[width=1.35\linewidth]{\photo} %including right side image
+\end{minipage}
+
+>>>>>>> 2f2e003cffc7557778c21385b5a1465b525dc58a
 \\\\\\\\\\\\\\\\
 \ifthenelse{\equal{\middlename}{\empty}}{\noindent{{\large{\emph {This is to certify that {\Large{\textcolor{red}{\sal \firstname}}}  {\Large{\textcolor{red}{\lastname}}} of {\Large{\textcolor{red}{\institue}}}, {\Large{\textcolor{red}{\city}}} attended the Faculty Development Program on Recent Advancements in Manufacturing Technology.}}}}}
 {{\noindent{{\large{\emph {This is to certify that {\Large{\textcolor{red}{\sal \firstname}}}  {\Large{\textcolor{red}{\middlename}}}  {\Large{\textcolor{red}{\lastname}}} of  {\Large{\textcolor{red}{\institue}}},  {\Large{\textcolor{red}{\city}}} attended the Faculty Development Program on Recent Advancements in Manufacturing Technology.}}}}}
